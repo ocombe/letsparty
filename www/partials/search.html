@@ -1,0 +1,24 @@
+<ion-view>
+    <form>
+        <div class="bar bar-header item-input-inset">
+            <label class="item-input-wrapper">
+                <input type="search" placeholder="Search" ng-model="query">
+            </label>
+            <button type="submit" class="button button-dark" ng-click="search(query, true)">
+                <i class="icon ion-search"></i>
+            </button>
+        </div>
+    </form>
+    <ion-content class="has-header">
+        <ion-list ng-if="artists">
+            <ion-item ng-repeat="artist in artists" class="item-thumbnail-left" ui-sref="app.artistAlbums({artistId: artist.id})">
+                <img ng-src="{{artist.images[artist.images.length-2].url}}">
+                <h2>{{artist.name}}</h2>
+                <p>{{ artist.genres.join(', ') }}</p>
+            </ion-item>
+        </ion-list>
+        <div ng-if="!artists" class="padding intro-block">
+            <h4>Search for artists on Spotify, display their albums and listen to track previews</h4>
+        </div>
+    </ion-content>
+</ion-view>

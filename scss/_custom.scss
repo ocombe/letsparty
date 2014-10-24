@@ -1,0 +1,20 @@
+.intro-block {
+    margin: auto;
+    text-align: center;
+}
+
+.item .track-number {
+    position: absolute;
+    left: 10px;
+    font-size: 52px;
+    line-height: 80px;
+    top: 10px;
+    width: 80px;
+    height: 80px;
+    text-align: center;
+    background: rgba(255, 255, 255, 0.5);
+}
+
+.faded {
+    opacity: 0.5;
+}

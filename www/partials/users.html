@@ -1,0 +1,11 @@
+<ion-view title="Users">
+	<ion-content>
+		<ion-list>
+			<ion-item ng-repeat="user in usersList" class="item item-thumbnail-left" ng-class="{faded: !isOnline(user.user_id)}">
+				<img ng-src="{{user.picture}}">
+				<h2>{{user.nickname}}</h2>
+				<p>{{user.description}}</p>
+			</ion-item>
+		</ion-list>
+	</ion-content>
+</ion-view>

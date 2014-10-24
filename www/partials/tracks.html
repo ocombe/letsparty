@@ -1,0 +1,23 @@
+<ion-view title="Tracks">
+    <div class="bar bar-header bar-dark" ui-sref="app.artistAlbums({artistId: album.artists[0].id})">
+        <a class="button icon ion-chevron-left button-dark"></a>
+        <h1 class="title"><span ng-repeat="artist in album.artists">{{ artist.name }}<span ng-if="!$last">, </span></span></h1>
+    </div>
+    <div class="bar bar-subheader">
+        <h2 class="title">{{ album.name }}</h2>
+    </div>
+	<ion-content class="has-subheader">
+		<ion-list>
+			<ion-item ng-repeat="track in tracks" class="item item-thumbnail-left item-button-right">
+                <img ng-src="{{album.images[2].url}}">
+                <i class="track-number">{{ track.track_number }}</i>
+				<h2>{{track.name}}</h2>
+                <p><span ng-repeat="artist in track.artists">{{ artist.name }}<span ng-if="!$last">, </span></span></p>
+
+				<button ng-if="track.preview_url" ng-click="playStream(track)" class="button" ng-class="{'button-balanced': !track.playing, 'button-assertive': track.playing}">
+					<i class="icon" ng-class="{'ion-play': !track.playing, 'ion-stop': track.playing}"></i>
+				</button>
+			</ion-item>
+		</ion-list>
+	</ion-content>
+</ion-view>
